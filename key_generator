@@ -1,1 +1,34 @@
+import random
 
+alphabet = [chr(i) for i in range(97, 123)]
+numbers = [chr(y) for y in range(48, 58)]
+cymbols = [chr(z) for z in range(33, 48)]
+password = ''
+
+while True:
+ try:
+  pas_len = int(input('Введите длину пароля: '))
+  break
+ except ValueError:
+  print('Пожалуйста введите число')
+
+pas_type = input('Выберите тип пароля:\n1. Только буквы\n2. Только цифры\n3. Буквы и цифры\n4. Буквы + цифры + спец. символы\n')
+if pas_type == '1': # Пароль, состоящий только из букв
+ for p in range(pas_len):
+  password += random.choice(alphabet)
+ print(password)
+
+elif pas_type == '2': # Пароль, состоящий только из цифр
+ for p in range(pas_len):
+  password += random.choice(numbers)
+ print(password)
+
+elif pas_type == '3': # Пароль, состоящий из букв и цифр
+ for p in range(pas_len):
+  password += random.choice(alphabet+numbers)
+ print(password)
+
+elif pas_type == '4': # Пароль, состоящий из букв, цифр и символов
+ for p in range(pas_len):
+  password += random.choice(alphabet+numbers+cymbols)
+ print(password)
